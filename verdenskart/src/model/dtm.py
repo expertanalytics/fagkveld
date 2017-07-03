@@ -7,7 +7,3 @@ class DTM:
 
     countries: location.Countries = {}
     data = None
-
-    def get_neighbors(self, country: str) -> location.Countries:
-        pass
-        # TODO: implement here
