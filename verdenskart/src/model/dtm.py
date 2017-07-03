@@ -38,7 +38,7 @@ class DTM:
             if not location.color:
                 set_location_colors(location)
 
-    def visuals(self, level: Optional(int)=-1) -> List[Tuple[Model, ColumnDataSource]]:
+    def visuals(self, level: Optional[int]=-1) -> List[Tuple[Model, ColumnDataSource]]:
         vis = []
         for location in self.locations.values():
             vis.extend(location.visuals(level))

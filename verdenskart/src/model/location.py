@@ -47,7 +47,7 @@ class Location:
         pass
         # TODO: implement here
 
-    def visuals(self, level: Optional(int)) -> List[Tuple[Model, ColumnDataSource]]:
+    def visuals(self, level: Optional[int]) -> List[Tuple[Model, ColumnDataSource]]:
 
         vis = []
         # border
