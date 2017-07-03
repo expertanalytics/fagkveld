@@ -6,7 +6,7 @@ from bokeh.models import ColumnDataSource, Patches, LabelSet
 
 from .location import Location
 from .coloring import set_location_colors
-from .utils.data_fetcher import get_world_topology
+from ..utils.data_fetcher import get_world_topology
 
 
 class DTM:

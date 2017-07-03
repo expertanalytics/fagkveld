@@ -7,7 +7,7 @@ Examples::
     >>> norway.neighbors.update({"sweden": sweden})
 
 """
-from .utils.colors_hybrid import COLORS
+from ..utils.colors_hybrid import COLORS
 from .location import Location
 
 
