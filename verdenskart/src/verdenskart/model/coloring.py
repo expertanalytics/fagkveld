@@ -1,11 +1,5 @@
 """
 Set colors values to all locations
-
-Examples::
-
-    >>> norway, sweden, denmark = Location(), Location(), Location()
-    >>> norway.neighbors.update({"sweden": sweden})
-
 """
 from ..utils.colors_hybrid import COLORS
 from .location import Location

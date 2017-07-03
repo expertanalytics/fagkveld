@@ -1,3 +1,13 @@
+"""
+Data terrain model (DTM).
+
+Examples::
+
+    >>> from verdenskart import DTM
+    >>> dtm = DTM()
+    >>> print(dtm["NOR"])
+    Location('Norway')
+"""
 from typing import Dict, List, Tuple, Set, Optional
 import numpy
 
@@ -35,6 +45,10 @@ class DTM:
         # add country colors
         self.set_location_colors()
         logging.info("Finshed __init__")
+
+    def __getitem__(self, item):
+        return self.locations[item]
+
 
     def set_location_colors(self):
         """Set color values on all locations and all location children."""

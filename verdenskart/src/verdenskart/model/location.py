@@ -78,4 +78,8 @@ class Location:
         for child in self.children.values():
             child.clear_visuals()
 
+    def __str__(self):
+        return "Location('{}')".format(self.long_name)
+
+
 Locations = Dict[str, Location]
