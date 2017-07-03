@@ -10,6 +10,7 @@ from bokeh.models import ColumnDataSource
 class Location:
 
     name: str = ""
+    long_name: str = ""
     border_x: List[numpy.ndarray] = []
     border_hull_x: List[numpy.ndarray] = []
     border_y: List[numpy.ndarray] = []
@@ -18,9 +19,14 @@ class Location:
     parent: "Optional[Location]" = None
     children: "Locations" = {}
     level: int = 0
+    alpha3code: str = ""
 
-    def __init__(self, name: str, Optional[parent]: Location=None):
+    def __init__(self, name: str, long_name: Optional[str]=None, Location: Optional[parent]=None):
         self.name = name
+        if long_name:
+            self.long_name = long_name
+        else:
+            self.long_name = name
 
     @property
     def location_x(self) -> float:
