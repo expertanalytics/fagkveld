@@ -7,3 +7,6 @@ class DTM:
 
     countries: location.Countries = {}
     data = None
+
+    def get_visuals(self):
+        pass
