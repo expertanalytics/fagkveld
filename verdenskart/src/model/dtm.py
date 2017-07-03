@@ -18,23 +18,19 @@ class DTM:
             self.locations[name] = Location(
                 name=name, long_name=country["name"])
 
-        # # add country neighbors:
-        # for name, country in countries.items():
-        #     neighbors = [
-        #         neighbor["alpha3Code"]
-        #         for neighbor in country["borders"]
-        #     ]
-        #     self.locations[name].neighbors = {
-        #         neighbor: self.locations[neighbor]
-        #         for neighbor in neighbors
-        #     }
-        #
-        # # add country colors
-        # self.set_location_colors()
+        # add country neighbors:
+        for name, country in countries.items():
+            self.locations[name].neighbors = {
+                neighbor: self.locations[neighbor]
+                for neighbor in country["borders"]
+            }
+
+        # add country colors
+        self.set_location_colors()
 
 
     def set_location_colors(self):
         """Set color values on all locations and all location children."""
-        for location in self.locations:
+        for location in self.locations.values():
             if not location.color:
                 set_location_colors(location)

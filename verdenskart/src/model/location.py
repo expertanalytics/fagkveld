@@ -20,6 +20,7 @@ class Location:
     children: "Locations" = {}
     level: int = 0
     alpha3code: str = ""
+    color: str = ""
 
     def __init__(self, name: str, long_name: Optional[str]=None, Location: Optional[parent]=None):
         self.name = name
