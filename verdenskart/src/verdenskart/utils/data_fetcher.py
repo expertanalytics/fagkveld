@@ -3,7 +3,7 @@ import logging
 import requests
 
 
-def get_world_topology():
+def get_world_topology() -> Dict[str, Any]:
     ans = requests.get("https://restcountries.eu/rest/v2/all?fields=name;capital;region;subregion;latlng;alpha2Code;alpha3Code;borders")
     if ans.status_code != 200:
         raise RuntimeError("Unable to get country data")
