@@ -4,12 +4,10 @@ from bokeh.models.widgets import Button, RadioButtonGroup, Select, Slider, Panel
 from bokeh.client import push_session
 import numpy as np
 
-from verdenskart.model import DTM
+from model.dtm import DTM
 
-
+dtm = DTM()
 fig = figure()
-
-dtm = None
 
 # add glyphs
 for (glyph, data_source) in dtm.visuals(level=-1):
