@@ -3,10 +3,6 @@ import numpy as np
 import bokeh
 
 
-def test_bokeh(dtm):
-    pass  
-
-
 @pytest.fixture()
 def dtm():
     dtm = DTM()
