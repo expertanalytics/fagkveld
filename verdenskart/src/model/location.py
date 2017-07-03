@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple, Set
+from typing import Dict, List, Tuple, Set, Optional
 from abc import abstractmethod
 
 import numpy
@@ -36,7 +36,7 @@ class Country(Location):
 
     neighbors: "Countries" = {}
     cities: "Cities" = {}
-    color: str
+    color: str = ""
 
 Countries = Dict[str, Country]
 
