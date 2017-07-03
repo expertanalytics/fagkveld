@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple, Set
+from typing import Dict, List, Tuple, Set, Optional
 from abc import abstractmethod
 
 import numpy
@@ -6,14 +6,18 @@ import numpy
 from bokeh.models import Model
 from bokeh.models import ColumnDataSource
 
+
 class Location:
-    """"""
 
     name: str = ""
     border_x: List[numpy.ndarray] = []
     border_hull_x: List[numpy.ndarray] = []
     border_y: List[numpy.ndarray] = []
     border_hull_y: List[numpy.ndarray] = []
+    neighbors: "Locations" = {}
+    parent: "Optional[Location]" = None
+    children: "Locations" = {}
+    level: int = 0
 
     @property
     def location_x(self) -> float:
@@ -31,18 +35,4 @@ class Location:
         pass
         # TODO: implement here
 
-
-class Country(Location):
-
-    neighbors: "Countries" = {}
-    cities: "Cities" = {}
-    color: str
-
-Countries = Dict[str, Country]
-
-
-class City(Location):
-
-    country: Country
-
-Cities = Dict[str, City]
+Locations = Dict[str, Location]

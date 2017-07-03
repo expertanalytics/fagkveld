@@ -1,12 +1,16 @@
 from typing import Dict, Set
 import numpy
 
-from model import location
+from model.location import Locations
+from model.coloring import set_location_colors
 
 class DTM:
 
-    countries: location.Countries = {}
+    locations: Locations = {}
     data = None
 
-    def get_visuals(self):
-        pass
+    def set_loction_colors(self):
+        """Set color values on all locations and all location children."""
+        for location in self.locations:
+            if not location.color:
+                set_location_colors(location)
