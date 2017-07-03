@@ -7,8 +7,8 @@ Examples::
     >>> norway.neighbors.update({"sweden": sweden})
 
 """
-from utils.colors_hybrid import  COLORS
-from model.location import Location
+from .utils.colors_hybrid import COLORS
+from .location import Location
 
 
 def set_location_colors(location: Location):
@@ -41,8 +41,3 @@ def set_location_colors(location: Location):
     for child in location.children.values():
         if not child.color:
             set_location_colors(child)
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
