@@ -6,7 +6,10 @@ import numpy as np
 
 dtm = DTM()
 
+fig = figure()
 
+# add glyphs
+for glyph, data_source in dtm.get_visualss():
+    fig.add_glyph(glyph=glyph, data_source=data_source)
 
-main_layout = row([])
-curdoc().add_root(main_layout)
+curdoc().add_root(fig)
