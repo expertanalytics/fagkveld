@@ -3,7 +3,7 @@ import numpy
 
 from .location import Location, Locations
 from .coloring import set_location_colors
-from .utils.data_fetcher import get_world_topology
+from ..utils.data_fetcher import get_world_topology
 
 class DTM:
 
