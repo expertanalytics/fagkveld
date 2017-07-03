@@ -42,16 +42,20 @@ class Location:
     @property
     @abstractmethod
     def visuals(self) -> List[Tuple[Model, ColumnDataSource]]:
+
+        vis = []
         # border
         self.border_ds = ColumnDataSource({'xs': self.border_x,
                                            'ys': self.border_y})
         self.border_glyph = Patches(xs='xs', ys='ys', source=self.border_ds)
 
+        vis.append((self.border_glyph, self.border_ds))
         # name at location x,y
 
-        return [(self.border_glyph, self.border_ds)]
+        # child elements
 
-    @property
+        return vis
+
     def clear_visuals(self):
         self.border_ds.data = {k: [] for k in self.border_ds_keys}
         self.location_ds.data = {k: [] for k in self.border_ds_keys}
