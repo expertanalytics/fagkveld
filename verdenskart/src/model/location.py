@@ -53,7 +53,8 @@ class Location:
         # border
         self.border_ds = ColumnDataSource({'xs': self.border_x,
                                            'ys': self.border_y})
-        self.border_glyph = Patches(xs='xs', ys='ys', source=self.border_ds)
+        color = self.color if self.color else 'blue'
+        self.border_glyph = Patches(xs='xs', ys='ys', source=self.border_ds, color=color)
 
         vis.append((self.border_glyph, self.border_ds))
         # name at location x,y
@@ -68,7 +69,6 @@ class Location:
     def clear_visuals(self):
         self.border_ds.data = {k: [] for k in self.border_ds_keys}
         self.location_ds.data = {k: [] for k in self.border_ds_keys}
-
 
         for child in self.children.values():
             child.clear_visuals()

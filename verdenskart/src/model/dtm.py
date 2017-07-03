@@ -32,13 +32,11 @@ class DTM:
         # add country colors
         self.set_location_colors()
 
-
     def set_location_colors(self):
         """Set color values on all locations and all location children."""
         for location in self.locations.values():
             if not location.color:
                 set_location_colors(location)
-
 
     def visuals(self, level: Optional(int)=-1) -> List[Tuple[Model, ColumnDataSource]]:
         vis = []
