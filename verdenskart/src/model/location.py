@@ -19,6 +19,9 @@ class Location:
     children: "Locations" = {}
     level: int = 0
 
+    def __init__(self, name: str):
+        self.name = name
+
     @property
     def location_x(self) -> float:
         pass
