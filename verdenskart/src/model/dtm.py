@@ -43,3 +43,4 @@ class DTM:
         for location in self.locations.values():
             vis.extend(location.visuals(level))
         return vis
+
