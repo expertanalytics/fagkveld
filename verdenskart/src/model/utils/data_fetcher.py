@@ -8,6 +8,4 @@ def get_world_topology():
         raise RuntimeError("Unable to get country data")
     countries = {country.pop("alpha3Code"): country for country in ans.json()}
     logging.info("Done getting raw topological data")
-    for country in countries:
-        countries[country]["borders"] = [countries[name] for name in countries[country]["borders"]]
     return countries
