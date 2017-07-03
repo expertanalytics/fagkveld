@@ -10,7 +10,8 @@ dtm = DTM()
 fig = figure()
 
 # add glyphs
+
 for (glyph, data_source) in dtm.visuals(level=-1):
-    fig.add_glyph(glyph=glyph, data_source=data_source)
+    fig.add_glyph(data_source, glyph=glyph)
 
 curdoc().add_root(fig)

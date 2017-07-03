@@ -54,7 +54,12 @@ class Location:
         self.border_ds = ColumnDataSource({'xs': self.border_x,
                                            'ys': self.border_y})
         color = self.color if self.color else 'blue'
-        self.border_glyph = Patches(xs='xs', ys='ys', source=self.border_ds, color=color)
+        self.border_glyph = Patches(
+            xs='xs',
+            ys='ys',
+            fill_color=color,
+            line_color=color
+        )
 
         vis.append((self.border_glyph, self.border_ds))
         # name at location x,y
