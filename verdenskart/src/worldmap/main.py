@@ -4,7 +4,9 @@ from bokeh.models.widgets import Button, RadioButtonGroup, Select, Slider, Panel
 from bokeh.client import push_session
 import numpy as np
 
-from model.dtm import DTM
+from verdenskart.model.dtm import DTM
+
+import logging
 
 dtm = DTM()
 fig = figure()
@@ -13,5 +15,6 @@ fig = figure()
 
 for (glyph, data_source) in dtm.visuals(level=-1):
     fig.add_glyph(data_source, glyph=glyph)
+    logging.debug(data_source.data)
 
 curdoc().add_root(fig)
