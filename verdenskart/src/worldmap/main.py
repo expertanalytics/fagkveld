@@ -37,7 +37,7 @@ dtm = DTM()
 fig = figure()
 
 # add glyphs
-for glyph, data_source in dtm.get_visualss():
+for glyph, data_source in dtm.get_visuals():
     fig.add_glyph(glyph=glyph, data_source=data_source)
 
 curdoc().add_root(fig)

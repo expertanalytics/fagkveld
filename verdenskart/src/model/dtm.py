@@ -14,3 +14,7 @@ class DTM:
         for location in self.locations:
             if not location.color:
                 set_location_colors(location)
+
+
+    def visuals(self):
+        pass
