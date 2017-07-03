@@ -28,6 +28,8 @@ class Location:
     location_ds = ColumnDataSource({k: [] for k in border_ds_keys})
     location_glyph = None
 
+    def __init__(self, name: str, Optional[parent]: Location=None):
+        self.name = name
 
     @property
     def location_x(self) -> float:
