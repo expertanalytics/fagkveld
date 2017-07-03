@@ -41,9 +41,7 @@ class Location:
         pass
         # TODO: implement here
 
-    @property
-    @abstractmethod
-    def visuals(self) -> List[Tuple[Model, ColumnDataSource]]:
+    def visuals(self, level: Optional(int)) -> List[Tuple[Model, ColumnDataSource]]:
 
         vis = []
         # border
@@ -55,11 +53,18 @@ class Location:
         # name at location x,y
 
         # child elements
+        if level and (level > self.level or level == -1):
+            for child in self.children.values():
+                vis.extend(child.visuals(level))
 
         return vis
 
     def clear_visuals(self):
         self.border_ds.data = {k: [] for k in self.border_ds_keys}
         self.location_ds.data = {k: [] for k in self.border_ds_keys}
+
+
+        for child in self.children.values():
+            child.clear_visuals()
 
 Locations = Dict[str, Location]

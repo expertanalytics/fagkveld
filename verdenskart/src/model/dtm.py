@@ -1,13 +1,13 @@
-from typing import Dict, Set
+from typing import Dict, List, Tuple, Set, Optional
 import numpy
 
-from .location import Locations
+from .location import Location
 from .coloring import set_location_colors
 from .utils.data_fetcher import get_world_topology
 
 class DTM:
 
-    locations: Locations = {}
+    locations: Location = {}
     data = None
 
     def __init__(self):
@@ -35,5 +35,8 @@ class DTM:
                 set_location_colors(location)
 
 
-    def visuals(self):
-        pass
+    def visuals(self, level: Optional(int)=-1) -> List[Tuple[Model, ColumnDataSource]]:
+        vis = []
+        for location in self.locations.values():
+            vis.extend(location.visuals(level))
+        return vis
