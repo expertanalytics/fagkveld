@@ -16,7 +16,7 @@ def get_country_polygon(alpha2code: str) -> Dict[str, Any]:
     try:
         ans = requests.get("http://nominatim.openstreetmap.org/search?country={}&polygon_geojson=1&format=json".format(alpha2code.lower()))
         if ans.status_code != 200:
-            raise RuntimeError("Unable to get boundary for {}".format(country))
+            raise RuntimeError("Unable to get boundary for {}".format(alpha2code))
         res = ans.json()
         if res:
             return res[0]["geojson"]

@@ -58,7 +58,8 @@ class Location:
             xs='xs',
             ys='ys',
             fill_color=color,
-            line_color=color
+            line_color=color,
+            line_alpha=0
         )
 
         vis.append((self.border_glyph, self.border_ds))
