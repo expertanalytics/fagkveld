@@ -47,20 +47,15 @@ class DTM:
         coordinates = get_country_polygon(norway)
         self.locations['NOR'].border_x = []
         self.locations['NOR'].border_y = []
-        print(len(coordinates['coordinates']))
         for patch in coordinates['coordinates']:
             border_x = []
             border_y = []
-            print(len(patch))
             for coords in patch:
                 co = np.array(coords)
-                print(len(co))
                 border_x.append(co[:, 0])
                 border_y.append(co[:, 1])
             self.locations['NOR'].border_x.extend(border_x)
             self.locations['NOR'].border_y.extend(border_y)
-        print()
-        print( self.locations['NOR'].border_x)
         # add country colors
         self.set_location_colors()
         logging.info("Finshed __init__")

@@ -19,10 +19,10 @@ def get_country_polygon(alpha2code: str) -> Dict[str, Any]:
                   'format': 'json',
                   'admin_level': 2,
                   'maritime': 'yes',
-                  #'natural': 'coastline',
+                  'border': 'natural',
+                  'natural': 'coastline',
                   }
         ans = requests.get("http://nominatim.openstreetmap.org/search", params=params)
-        print('request for: ', ans.url)
         if ans.status_code != 200:
             raise RuntimeError("Unable to get boundary for {}".format(alpha2code))
         res = ans.json()
