@@ -1,6 +1,11 @@
 from typing import Dict, Any
 import logging
+import zipfile
+import io
+
 import requests
+import fiona
+import tempfile
 
 
 def get_world_topology() -> Dict[str, Any]:
@@ -26,7 +31,33 @@ def get_country_polygon(alpha2code: str) -> Dict[str, Any]:
         print("Got error while getting polygon for".format(alpha2code))
 
 
-#if __name__ == "__main__":
+SHAPES = {
+    "coastline": "physical/ne_10m_coastline.zip",
+}
+
+def get_shapes(shape: str):
+    filename = SHAPES[shape]
+    ans = requests.get(
+        "http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/{}".format(filename))
+    if ans.status_code != 200:
+        raise RuntimeError("Unable to get shape data")
+
+    with zipfile.ZipFile(io.BytesIO(ans.content)) as zipcontainer:
+        for filename in zipcontainer.namelist():
+            if filename.endswith(".shp") or filename.endswith(".shx"):
+                with zipcontainer.open(filename) as filecontent:
+                    with open(filename, "wb") as sink:
+                        sink.write(filecontent.read())
+
+        for filename in zipcontainer.namelist():
+            if filename.endswith(".shp"):
+                break
+
+    with fiona.open(filename) as src:
+        for element in src:
+            yield element
+
+# if __name__ == "__main__":
 #    topology = get_world_topology()
 #    for c in topology.values():
 #        c.pop("borders")
