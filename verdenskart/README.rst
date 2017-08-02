@@ -6,13 +6,18 @@ Expert Analytics playtoy for creating world maps using Bokeh.
 Installation
 ------------
 `verdenskart` requires that GDAL is installed in the system before
-installation. On Ubuntu/Debian, this can be installed as follows::
+installation.
+
+On Ubuntu/Debian version before 17.04, the APT repository needs to be updated::
 
     $ sudo add-apt-repository ppa:ubuntugis/ppa
-    $ sudo update
+
+To install system requirements::
+
+    $ sudo apt update
     $ sudo apt install gdal-bin libgdal-dev
 
-To install requirements and install package::
+To install python requirements and install package::
 
     $ pip install -r requirements.txt
     $ python setup.py install
