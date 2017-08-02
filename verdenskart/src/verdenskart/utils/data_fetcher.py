@@ -14,7 +14,15 @@ def get_world_topology() -> Dict[str, Any]:
 
 def get_country_polygon(alpha2code: str) -> Dict[str, Any]:
     try:
-        ans = requests.get("http://nominatim.openstreetmap.org/search?country={}&polygon_geojson=1&format=json".format(alpha2code.lower()))
+        params = {'country': alpha2code.lower(),
+                  'polygon_geojson': 2,
+                  'format': 'json',
+                  'admin_level': 2,
+                  'maritime': 'yes',
+                  #'natural': 'coastline',
+                  }
+        ans = requests.get("http://nominatim.openstreetmap.org/search", params=params)
+        print('request for: ', ans.url)
         if ans.status_code != 200:
             raise RuntimeError("Unable to get boundary for {}".format(alpha2code))
         res = ans.json()
