@@ -42,20 +42,6 @@ class DTM:
                 for neighbor in country["borders"]
             }
 
-        # load norway
-        norway = 'NO'
-        coordinates = get_country_polygon(norway)
-        self.locations['NOR'].border_x = []
-        self.locations['NOR'].border_y = []
-        for patch in coordinates['coordinates']:
-            border_x = []
-            border_y = []
-            for coords in patch:
-                co = np.array(coords)
-                border_x.append(co[:, 0])
-                border_y.append(co[:, 1])
-            self.locations['NOR'].border_x.extend(border_x)
-            self.locations['NOR'].border_y.extend(border_y)
         # add country colors
         self.set_location_colors()
         logging.info("Finshed __init__")
