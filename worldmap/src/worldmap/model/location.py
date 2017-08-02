@@ -1,3 +1,4 @@
+
 from typing import Dict, List, Tuple, Set, Optional
 from abc import abstractmethod
 
@@ -84,3 +85,4 @@ class Location:
 
 
 Locations = Dict[str, Location]
+
