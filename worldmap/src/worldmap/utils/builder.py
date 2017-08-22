@@ -29,9 +29,11 @@ def build_group(location_group: str) -> Dict[str, Location]:
 
         if location_group == "country":
             location.parent = shape["properties"]["CONTINENT"]
+            location.level = 2
 
         elif location_group == "city":
             location.parent = shape["properties"]["ADM0NAME"]
+            location.level = 3
 
         if shape["geometry"]["type"] in ("LineString", "Polygon"):
 
