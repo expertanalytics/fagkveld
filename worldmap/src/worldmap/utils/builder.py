@@ -1,7 +1,7 @@
 """
 Location builder
 """
-from typing import Dict
+from typing import Dict, Type
 import numpy
 
 from .data_fetcher import get_shapes
@@ -13,7 +13,10 @@ HIERARKY = {
 }
 
 
-def build_group(location_group: str) -> Dict[str, Location]:
+def build_group(
+        location_group: str,
+        loction_class: Type[Location] = Location,
+) -> Dict[str, Location]:
     """
     Build group (like country or cities).
     """
@@ -24,7 +27,8 @@ def build_group(location_group: str) -> Dict[str, Location]:
 
         name = shape["properties"].get("ADMIN", location_group)
 
-        location = Location(name)
+        location = location_class(name)
+
         location.alpha3code = shape["properties"].get("ADM0_A3")
 
         if location_group == "country":
@@ -47,11 +51,11 @@ def build_group(location_group: str) -> Dict[str, Location]:
     return groups
 
 
-def build_coastlines():
-    return build_group("coastline")
+def build_coastlines(loction_class: Type[Location] = Location):
+    return build_group("coastline", loction_class)
 
-def build_countries():
-    return build_group("country")
+def build_countries(loction_class: Type[Location] = Location):
+    return build_group("country", loction_class)
 
-def build_cities():
-    return build_group("city")
+def build_cities(loction_class: Type[Location] = Location):
+    return build_group("city", loction_class)
