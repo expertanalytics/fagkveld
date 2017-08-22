@@ -1,8 +1,10 @@
+
 external
     External dependencies
-model
-    Data model
-utils
-    tools
+
 worldmap
+    Package source
+
+worldmap_bokeh
     Bokeh plotting application
+

@@ -1,4 +1,5 @@
 """Retrieve data for processing."""
+
 from typing import Dict, Any, Iterable
 import logging
 import zipfile
@@ -121,3 +122,4 @@ def get_shapes(shape_set: str) -> Iterable[fiona.Collection]:
 
 for shape in get_shapes("reef"):
     print(shape)
+
