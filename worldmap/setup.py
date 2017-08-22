@@ -8,5 +8,7 @@ setup(
     packages=find_packages('src'),
     package_data={},
     package_dir={'': 'src'},
-    entry_points={'console_scripts': []},
+    entry_points={'console_scripts': [
+            'worldmap-plot = worldmap.utils.mpl_map_plot:main'
+        ]},
 )
