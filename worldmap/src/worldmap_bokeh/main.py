@@ -6,18 +6,19 @@ from bokeh.client import push_session
 import numpy as np
 from typing import Dict, List, Tuple, Set, Optional
 
-from worldmap.model.dtm import DTM
+from worldmap.utils.builder import build_countries
+from worldmap.model.bokeh_backend import BokehLocation
 
 import logging
 
 
-locations = None
+locations = build_countries(BokehLocation)
 
 fig = figure()
 
 # add glyphs
 
-def visuals(self, locations, level: Optional[int] = -1) -> List[Tuple[Model, ColumnDataSource]]:
+def visuals(locations, level: Optional[int]=-1):
     vis = []
     for location in locations.values():
         vis.extend(location.visuals(level))

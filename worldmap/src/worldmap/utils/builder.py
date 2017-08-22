@@ -15,7 +15,7 @@ HIERARKY = {
 
 def build_group(
         location_group: str,
-        loction_class: Type[Location] = Location,
+        location_class: Type[Location] = Location,
 ) -> Dict[str, Location]:
     """
     Build group (like country or cities).
