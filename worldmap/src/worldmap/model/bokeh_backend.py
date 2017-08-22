@@ -7,8 +7,8 @@ from .location import Location
 
 class BokehLocation(Location):
 
-    def __init__(self):
-        super(BokehLocation, self).__init__()
+    def __init__(self, name):
+        super().__init__(name)
 
         self.border_ds_keys = ('xs', 'ys')
         self.border_ds = ColumnDataSource({k: [] for k in self.border_ds_keys})
