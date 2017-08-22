@@ -14,7 +14,7 @@ import logging
 
 locations = build_countries(BokehLocation)
 
-fig = figure()
+fig = figure(tools='tap, pan', height=500, width=500)
 
 # add glyphs
 
