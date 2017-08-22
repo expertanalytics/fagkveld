@@ -1,6 +1,7 @@
 """
-Set colors values to all locations
+Set color values to all locations
 """
+
 from ..utils.colors_hybrid import COLORS
 from .location import Location
 
@@ -35,3 +36,4 @@ def set_location_colors(location: Location):
     for child in location.children.values():
         if not child.color:
             set_location_colors(child)
+

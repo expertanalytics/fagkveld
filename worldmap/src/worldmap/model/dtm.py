@@ -3,11 +3,12 @@ Data terrain model (DTM).
 
 Examples::
 
-    >>> from verdenskart import DTM
+    >>> from worldmap import DTM
     >>> dtm = DTM()
     >>> print(dtm["NOR"])
     Location('Norway')
 """
+
 from typing import Dict, List, Tuple, Set, Optional
 
 from bokeh.models import Model
@@ -18,7 +19,6 @@ import numpy as np
 from .location import Location
 from .coloring import set_location_colors
 from ..utils.data_fetcher import get_world_topology, get_country_polygon
-
 
 
 class DTM:

@@ -1,3 +1,4 @@
+
 COLORS = {
     "color0": "#2d3c46",
     "color1": "#a54242",
@@ -16,3 +17,4 @@ COLORS = {
     "color14": "#8abeb7",
     "color15": "#c5c8c6",
 }
+

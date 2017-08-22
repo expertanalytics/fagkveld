@@ -1,4 +1,5 @@
 """Retrieve data for processing."""
+
 from typing import Dict, Any, Iterable
 import logging
 import zipfile
@@ -93,7 +94,7 @@ def get_shapes(shape_set: str) -> Iterable[fiona.Collection]:
 
         # get shape filename:
         for filename in zipcontainer.namelist():
-            if filename.endswith(".shp"):
+            if filename.endswith(".dbf"):
                 break
 
         # extract if just downloaded:
@@ -101,7 +102,7 @@ def get_shapes(shape_set: str) -> Iterable[fiona.Collection]:
             logger.info("extracting zip file")
             filenames = (
                 filename for filename in zipcontainer.namelist()
-                if filename[-4:] in (".shp", ".shx", ".prj")
+                if filename[-4:] in (".shp", ".shx", ".prj", ".dbf")
             )
             for filename in filenames:
                 with zipcontainer.open(filename) as filecontent:
@@ -118,6 +119,3 @@ def get_shapes(shape_set: str) -> Iterable[fiona.Collection]:
     with fiona.open(filepath) as src:
         for element in src:
             yield element
-
-for shape in get_shapes("reef"):
-    print(shape)
