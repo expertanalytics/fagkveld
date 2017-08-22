@@ -7,3 +7,5 @@ rasterio==0.36.0
 pytest==3.1.2
 pytest-runner==2.11.1
 fiona==1.7.8
+descartes==1.1.0
+matplotlib==2.0.2
